@@ -1,38 +1,248 @@
 .App {
-  text-align: center;
+  background-color: #f4e1e1;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  text-align: left;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 800;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.card-time {
+  font-size: 1.1rem;
+  color: #ff5555;
+}
+
+.card-content {
+  font-size: 0.9rem;
+  color: #7f7f7f;
+  margin-bottom: 0px;
+}
+
+.Register-root-4 {
+  display: inline-block;
+}
+
+.Login-root-8 {
+  display: inline-block;
+}
+
+a {
+  color: black;
+}
+
+.App a:hover {
+  text-decoration: none;
+}
+
+.box {
+  border: solid grey 2px;
+  border-radius: 6px;
+}
+
+.text-box {
+  padding: 20px;
+}
+
+.text-box .row {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.text-box h1 {
+  font-size: 45px;
+  width: fit-content;
+  font-weight: 400;
+}
+
+.text-box h2 {
+  font-size: 45px;
+  width: fit-content;
+  font-weight: 700;
+  color: #ff5555;
+}
+
+.text-box h4 {
+  font-size: 24px;
+  color: #ff5555;
+  font-weight: 400;
+  width: fit-content;
+  margin-top: 8px;
+}
+
+.text-box .col {
+  max-width: fit-content;
+  padding: 0%;
+}
+
+.catbox {
+  width: 230px;
+  height: 60px;
+  background-color: #ff5555;
+  color: white;
+  align-self: center;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  border-radius: 15px;
+}
+
+.catbox a {
+  color: white;
+  align-self: center;
+}
+
+.catbox p {
+  font-size: 25px;
+  font-weight: 600;
+  text-align: center;
+  width: 230px;
+  margin-bottom: auto;
+  line-height: 10px;
+}
+
+#popover-basic {
+  font-size: 23px;
+  width: 250px;
+  line-height: 50px;
+}
+
+.profile h1 {
+  font-weight: 700;
+}
+
+.profile h3 {
+  font-weight: 400;
+  color: #6d6d6d;
+}
+
+.ticketBox {
+  border-top: solid #ff5555 5px;
+  background-color: white;
+}
+
+.ticket {
+  border: solid #ff5555 25px;
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.ticket-header {
+  background-color: #bcbcbc;
+  color: #6d6d6d;
+  display: flex;
+  padding-left: 20px;
+  padding-right: 10px;
+  padding-bottom: 20px;
+}
+
+.ticket-header h1 {
+  color: #494949;
+  font-weight: 400;
+  font-size: 30px;
+  width: 70%;
+}
+
+.ticket-body {
+  color: #6d6d6d;
+  display: flex;
+  padding-left: 20px;
+  padding-right: 10px;
+  padding-bottom: 20px;
+}
+
+.ticket-body h1 {
+  color: #494949;
+  font-weight: 700;
+  font-size: 33px;
+  width: 70%;
+}
+
+.ticket-body h2 {
+  color: #6d6d6d;
+  font-size: 19px;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+.pay-box {
+  width: 50%;
+  height: 70px;
+  background-color: #ff5555;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.pay-box h1 {
+  color: white;
+  font-weight: 400;
+  font-size: 35px;
+  text-align: center;
+  padding: 8px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.paymentBox {
+  border-top: solid #ff5555 5px;
+  background-color: white;
+  margin-bottom: 100px;
+}
+
+.payment {
+  width: 73%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.payment h2 {
+  color: #6d6d6d;
+  font-weight: 700;
+  font-size: 25px;
+}
+
+.pay hr {
+  border-top: 2px solid #bcbcbc;
+  width: 80%;
+}
+
+.pay {
+  background-color: #f4e1e1;
+}
+
+.payButton {
+  width: 180px;
+  height: 45px;
+  background-color: #ff5555;
+  color: white;
+  font-weight: 600;
+  font-size: 28px;
+  text-align: center;
+  border-radius: 12px;
+}
+
+.form {
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
+.MuiFormControl-root {
+  display: flex !important;
+  margin-bottom: 20px !important;
+}
+
+.submit-button {
+  width: 250px;
+  height: 60px;
+  background-color: #1da1f2;
+  color: white;
+  font-weight: 600;
+  font-size: 28px;
+  text-align: center;
+  border-radius: 12px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

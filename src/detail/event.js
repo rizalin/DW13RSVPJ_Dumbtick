@@ -1,13 +1,14 @@
 import React from "react";
 import Header from "../header/header";
 import Footer from "../footer";
-import Detail from "./detail";
+import Detail from "./details";
+import DetailMap from "../mapping/detailMap";
 
 function EventDetail() {
   return (
     <div className="App">
       <Header />
-      <Detail />
+      <DetailMap />
       <Footer />
     </div>
   );

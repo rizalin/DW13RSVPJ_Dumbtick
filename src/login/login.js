@@ -3,9 +3,7 @@ import { withStyles } from "@material-ui/core/styles";
 import {
   Modal,
   Backdrop,
-  Fade,
   TextField,
-  Typography,
   IconButton
 } from "@material-ui/core";
 import { Button } from "reactstrap";
@@ -66,16 +64,14 @@ class Login extends Component {
     axios
       .post("http://localhost:5000/api/v1/login", {
         username: this.state.username,
-        name: this.state.name,
         password: this.state.password,
-        email: this.state.email
       })
       .then(res => {
         if (res.data.token == null) {
           alert("Wrong Email or Password");
         } else {
           localStorage.setItem("token", res.data.token);
-          localStorage.setItem("name", res.data.name);
+          localStorage.setItem("id", res.data.id)
           localStorage.setItem("isLogin", true);
           window.location = "/";
         }
@@ -137,11 +133,11 @@ class Login extends Component {
               <div className={classes.root}>
                 <TextField
                   id="standard-basic"
-                  label="Email"
-                  value={this.state.email}
+                  label="Username"
+                  value={this.state.username}
                   onChange={e => {
                     this.setState({
-                      email: e.target.value
+                      username: e.target.value
                     });
                   }}
                 />

@@ -1,8 +1,4 @@
-import {
-  GET_CATEGORIES,
-  GET_CATEGORY,
-  GET_EVENT_BY_CATEGORY,
-} from "../_config/const";
+import { GET_EVENT, GET_EVENTS, ADD_EVENT, NEXT_EVENT } from "../_config/const";
 
 const initialState = {
   data: [],
@@ -11,64 +7,76 @@ const initialState = {
   error: false
 };
 
-export const category = (state = initialState, action) => {
+export const event = (state = initialState, action) => {
   switch (action.type) {
-    case `${GET_CATEGORIES}_PENDING`:
+    case `${GET_EVENTS}_PENDING`:
       return {
         ...state,
         isLoading: true
       };
-    case `${GET_CATEGORIES}_FULFILLED`:
+    case `${GET_EVENTS}_FULFILLED`:
       return {
         ...state,
         data: action.payload.data,
         isLoading: false,
         isPost: false
       };
-    case `${GET_CATEGORIES}_REJECTED`:
+    case `${GET_EVENTS}_REJECTED`:
       return {
         ...state,
         error: true,
         isLoading: false
       };
-    case `${GET_CATEGORY}_PENDING`:
+    case `${GET_EVENT}_PENDING`:
       return {
         ...state,
         isLoading: true
       };
-    case `${GET_CATEGORY}_FULFILLED`:
+    case `${GET_EVENT}_FULFILLED`:
       return {
         ...state,
         data: action.payload.data,
         isLoading: false,
         isPost: false
       };
-    case `${GET_CATEGORY}_REJECTED`:
+    case `${GET_EVENT}_REJECTED`:
       return {
         ...state,
         error: true,
         isLoading: false
       };
-    default:
-      return state;
-  }
-};
-
-export const eventByCat = (state = initialState, action) => {
-  switch (action.type) {
-    case `${GET_EVENT_BY_CATEGORY}_PENDING`:
+    case `${ADD_EVENT}_PENDING`:
+      return {
+        ...state,
+        isLoading: true,
+        isPost: true
+      };
+    case `${ADD_EVENT}_FULFILLED`:
+      return {
+        ...state,
+        data: state.data.concat(action.payload.data),
+        isLoading: false,
+        isPost: false
+      };
+    case `${ADD_EVENT}_REJECTED`:
+      return {
+        ...state,
+        error: true,
+        isLoading: false
+      };
+    case `${NEXT_EVENT}_PENDING`:
       return {
         ...state,
         isLoading: true
       };
-    case `${GET_EVENT_BY_CATEGORY}_FULFILLED`:
+    case `${NEXT_EVENT}_FULFILLED`:
       return {
         ...state,
         data: action.payload.data,
         isLoading: false,
         isPost: false
       };
-    case `${GET_EVENT_BY_CATEGORY}_REJECTED`:
+    case `${NEXT_EVENT}_REJECTED`:
       return {
         ...state,
         error: true,

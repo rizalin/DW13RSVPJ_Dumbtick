@@ -3,9 +3,7 @@ import { withStyles } from "@material-ui/core/styles";
 import {
   Modal,
   Backdrop,
-  Fade,
   TextField,
-  Typography,
   IconButton
 } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
@@ -74,6 +72,8 @@ class Register extends Component {
       .then(res => {
         console.log(res.data.token);
         localStorage.setItem("token", res.data.token);
+        localStorage.setItem("id", res.data.id)
+        localStorage.setItem("isLogin", true);
         window.location = "/";
       })
       .catch(err => {

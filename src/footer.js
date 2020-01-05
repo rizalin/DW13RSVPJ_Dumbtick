@@ -1,42 +1,34 @@
 import React, { Component } from "react";
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import { Container } from "reactstrap";
+import CopyrightIcon from '@material-ui/icons/Copyright';
+import { Container, Col } from "reactstrap";
+import Logo from "./img/dumb-mini.png"
+import "./App.css"
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow: 1
-  },
-  paper: {
-    height: 140,
-    width: 100
-  },
-  control: {
-    padding: theme.spacing(2)
-  }
-}));
+
 
 class Footer extends Component {
   render() {
     return (
-      <div style={{ backgroundColor: "#FF5555" }}>
-        <Container>
+      <div className="footer">
+        <Container
+          className="footer-body">
           <Grid
             container
             direction="row"
             justify="space-between"
-            alignItems="center"
           >
-            <Grid item xs>
+            <Col sm={4}>
               <div>
-                <h4>Halo</h4>
+                <img src={Logo} alt="dumb-ticket" />
                 <p>
                   dumb-tick - is a web-based platform that provides tickets for
                   various events around sports, music, science, and programming.
                 </p>
               </div>
-            </Grid>
-            <Grid item xs>
+            </Col>
+            <Col sm={2}>
               <div>
                 <h4>Links</h4>
                 <p>About Us</p>
@@ -44,15 +36,16 @@ class Footer extends Component {
                 <p>Instagram</p>
                 <p>Twitter</p>
               </div>
-            </Grid>
-            <Grid item xs>
+            </Col>
+            <Col sm={3}>
               <div>
                 <h4>Have A Question</h4>
-                <p>Dumb-tick</p>
+                <h4>Dumb-tick</h4>
                 <p>Email : Support@dumbtick.com</p>
               </div>
-            </Grid>
+            </Col>
           </Grid>
+          <p className='copyright'><CopyrightIcon style={{ fontSize: '10px' }} /> Copyright 2019 Dumbtick</p>
         </Container>
       </div>
     );

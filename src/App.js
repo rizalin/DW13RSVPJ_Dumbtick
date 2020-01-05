@@ -8,6 +8,7 @@ import MyEvent from "./userContent/myEvent";
 import MyTicket from "./userContent/myTicket";
 import Payment from "./userContent/payment";
 import AddEvent from "./userContent/addEvent";
+import EditPage from "./userContent/editpage";
 
 class App extends Component {
   render() {
@@ -23,6 +24,7 @@ class App extends Component {
             <Route exact path="/my_ticket" component={MyTicket} />
             <Route exact path="/payment" component={Payment} />
             <Route path="/add_event" component={AddEvent} />
+            <Route path="/editProfile" component={EditPage} />
           </Switch>
         </Router>
       </div>

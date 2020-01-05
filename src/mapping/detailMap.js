@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import { connect } from "react-redux"
+import { getEvent } from "../_actions/event"
 import axios from "axios";
-import { Grid } from "@material-ui/core";
-import EventList from "../list/eventlist";
+import Detail from "../detail/details";
 
-class CatMap extends Component {
+class DetailMap extends Component {
   query = new URLSearchParams(window.location.search);
   url = this.query.get("id");
   state = {
@@ -12,29 +13,46 @@ class CatMap extends Component {
 
   componentDidMount() {
     const id = this.url;
-    axios
-      .get("http://localhost:5000/api/v1/event/" + id)
-      .then(res => {
-        this.setState({ event: res.data });
-        console.log(res.data);
-      })
-      .catch(err => console.log(err));
+    this.props.dispatch(getEvent(id))
   }
 
+
   render() {
+    const { data } = this.props.event
+    const { category,createdBy } = this.props.cat
+    console.log(data)
     return (
       <div>
-        <EventList
-          key={event.id}
-          img={event.img}
-          title={event.title}
-          price={event.price}
-          brief={event.briefDesc}
-          time={event.startTime}
-        />
+        {data&& category&& <Detail
+          key={data.id}
+          id={data.id}
+          img={data.img}
+          title={data.title}
+          category={category.name}
+          name={createdBy.name}
+          phone={createdBy.phoneNumber}
+          email={createdBy.email}
+          price={data.price}
+          desc={data.description}
+          time={data.startTime}
+          address={data.address}
+          desc={data.description}
+          address={data.address}
+          startTime={data.startTime}
+          endTime={data.endTime}
+          map={data.urlMaps}
+        /> }
+       
       </div>
     );
   }
 }
 
-export default CatMap;
+const mapStateToProps = state => {
+  return {
+    event: state.event,
+    cat:state.event.data
+  };
+};
+
+export default connect(mapStateToProps)(DetailMap);

@@ -1,27 +1,21 @@
 import React, { Component } from "react";
-import axios from "axios";
+import { getEventByCategory } from "../_actions/category";
+import { connect } from "react-redux";
 import { Grid } from "@material-ui/core";
 import EventList from "../list/eventlist";
 
 class CatMap extends Component {
   query = new URLSearchParams(window.location.search);
   url = this.query.get("id");
-  state = {
-    eventList: []
-  };
 
   componentDidMount() {
     const id = this.url;
-    axios
-      .get("http://localhost:5000/api/v1/category/" + id + "/events")
-      .then(res => {
-        this.setState({ eventList: res.data });
-        console.log(res.data);
-      })
-      .catch(err => console.log(err));
+    this.props.dispatch(getEventByCategory(id));
   }
 
   render() {
+    const { data, isLoading } = this.props.categories;
+    console.log(data);
     return (
       <Grid
         container
@@ -31,7 +25,7 @@ class CatMap extends Component {
         spacing={2}
         style={{ marginTop: "20px", marginBottom: "20px" }}
       >
-        {this.state.eventList.map(event => (
+        {data.map(event => (
           <EventList
             key={event.id}
             img={event.img}
@@ -46,4 +40,10 @@ class CatMap extends Component {
   }
 }
 
-export default CatMap;
+const mapStateToProps = state => {
+  return {
+    categories: state.eventByCat
+  };
+};
+
+export default connect(mapStateToProps)(CatMap);

@@ -93,6 +93,11 @@ a {
   align-self: center;
 }
 
+.catbox a:hover {
+  color: white;
+  align-self: center;
+}
+
 .catbox p {
   font-size: 25px;
   font-weight: 600;
@@ -127,6 +132,7 @@ a {
   width: 80%;
   margin-right: auto;
   margin-left: auto;
+  margin-bottom: 40px;
 }
 
 .ticket-header {
@@ -142,7 +148,6 @@ a {
   color: #494949;
   font-weight: 400;
   font-size: 30px;
-  width: 70%;
 }
 
 .ticket-body {
@@ -245,4 +250,95 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.submit-button a {
+  color: white;
+}
+
+.submit-button a:hover {
+  color: white;
+}
+
+.profileDropdown {
+  display: flex;
+  align-items: center;
+}
+
+.profileDropdown h2 {
+  margin-right: 3vh;
+  color: white;
+  font-weight: 300;
+}
+
+.detail h3 {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.detail p {
+  font-size: 15px;
+  color: #6d6d6d;
+}
+
+.detail {
+  margin-bottom: 20px;
+}
+
+.frame {
+  display: flex;
+  justify-content: center;
+}
+
+.share-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.footer {
+  background-color: #ff5555;
+  color: white;
+}
+
+.footer h4 {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.footer p {
+  margin-bottom: 10px;
+}
+
+.footer-body {
+  padding: 40px 0;
+}
+
+.copyright {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+}
+
+.pen-Button {
+  width: 180px;
+  height: 45px;
+  background-color: #ffb63d;
+  color: black;
+  font-weight: 600;
+  font-size: 28px;
+  text-align: center;
+  border-radius: 12px;
+}
+
+.paymentBox a:hover {
+  text-decoration: none;
 }

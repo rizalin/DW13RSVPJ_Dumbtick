@@ -1,8 +1,11 @@
-import React from "react";
+import React, { Component } from "react";
 import { Avatar, Link } from "@material-ui/core";
-import { Popover, OverlayTrigger, Dropdown } from "react-bootstrap";
+import { Popover, OverlayTrigger, Dropdown, Row } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../App.css";
+import { connect } from "react-redux"
+import { getUser } from "../_actions/user"
+import { getToken } from "../_config/bearer"
 
 function logout() {
   localStorage.removeItem("token");
@@ -12,6 +15,7 @@ function logout() {
 }
 
 const isLogin = localStorage.getItem("isLogin");
+const token = localStorage.getItem("token")
 
 const popover = (
   <Popover id="popover-basic">
@@ -27,21 +31,37 @@ const popover = (
   </Popover>
 );
 
-function Popovers() {
-  return (
-    <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
-      <Avatar
-        style={{
-          fontSize: "15px",
-          height: "50px",
-          width: "50px",
-          display: isLogin ? "block" : "none"
-        }}
-      >
-        R
-      </Avatar>
-    </OverlayTrigger>
-  );
+class Popovers extends Component {
+  componentDidMount() {
+    const id = localStorage.getItem("id")
+    this.props.dispatch(getUser(id))
+  }
+
+  render() {
+    getToken(token)
+    const { data } = this.props.user
+    return (
+      <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
+        <div className="profileDropdown">
+          <h2 >{data.username}</h2>
+          <Avatar src={`${data.img}`}
+            style={{
+              height: "50px",
+              width: "50px",
+              display: isLogin ? "block" : "none"
+            }} />
+        </div>
+      </OverlayTrigger>
+    );
+  }
 }
 
-export default Popovers;
+
+
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  };
+};
+
+export default connect(mapStateToProps)(Popovers);

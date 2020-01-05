@@ -1,31 +1,31 @@
 import React, { Component } from "react";
-import axios from "axios";
+import { connect } from "react-redux"
+import { getCategory } from "../_actions/category"
 import Body from "../category/body";
 
 class DetailMap extends Component {
   query = new URLSearchParams(window.location.search);
   url = this.query.get("id");
 
-  state = {
-    category: []
-  };
-
   componentDidMount() {
     const id = this.url;
-    axios.get("http://localhost:5000/api/v1/category/" + id).then(res => {
-      this.setState({ category: res.data });
-      console.log(res.data);
-    });
+    this.props.dispatch(getCategory(id));
   }
 
   render() {
-    const { category } = this.state;
+    const { data } = this.props.categories
     return (
       <div>
-        <Body key={category.id} name={category.name} />
+        <Body key={data.id} name={data.name} />
       </div>
     );
   }
 }
 
-export default DetailMap;
+const mapStateToProps = state => {
+  return {
+    categories: state.category
+  };
+};
+
+export default connect(mapStateToProps)(DetailMap);

@@ -1,8 +1,4 @@
-import {
-  GET_CATEGORIES,
-  GET_CATEGORY,
-  GET_EVENT_BY_CATEGORY,
-} from "../_config/const";
+import { GET_ORDER, ADD_ORDER, EDIT_PAYMENT } from "../_config/const";
 
 const initialState = {
   data: [],
@@ -11,64 +7,63 @@ const initialState = {
   error: false
 };
 
-export const category = (state = initialState, action) => {
+export const order = (state = initialState, action) => {
   switch (action.type) {
-    case `${GET_CATEGORIES}_PENDING`:
+    case `${GET_ORDER}_PENDING`:
       return {
         ...state,
         isLoading: true
       };
-    case `${GET_CATEGORIES}_FULFILLED`:
+    case `${GET_ORDER}_FULFILLED`:
       return {
         ...state,
         data: action.payload.data,
         isLoading: false,
         isPost: false
       };
-    case `${GET_CATEGORIES}_REJECTED`:
+    case `${GET_ORDER}_REJECTED`:
       return {
         ...state,
         error: true,
         isLoading: false
       };
-    case `${GET_CATEGORY}_PENDING`:
+    case `${ADD_ORDER}_PENDING`:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
+        isPost: true
       };
-    case `${GET_CATEGORY}_FULFILLED`:
+    case `${ADD_ORDER}_FULFILLED`:
       return {
         ...state,
-        data: action.payload.data,
+        data: state.data.concat(action.payload.data),
         isLoading: false,
         isPost: false
       };
-    case `${GET_CATEGORY}_REJECTED`:
+    case `${ADD_ORDER}_REJECTED`:
       return {
         ...state,
         error: true,
         isLoading: false
       };
-    default:
-      return state;
-  }
-};
-
-export const eventByCat = (state = initialState, action) => {
-  switch (action.type) {
-    case `${GET_EVENT_BY_CATEGORY}_PENDING`:
+    case `${EDIT_PAYMENT}_PENDING`:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
+        isPost: true
       };
-    case `${GET_EVENT_BY_CATEGORY}_FULFILLED`:
+    case `${EDIT_PAYMENT}_FULFILLED`:
       return {
         ...state,
-        data: action.payload.data,
+        data: [
+          ...state.data.slice(0, action.payload.config.params.id - 1),
+          ...[action.payload.data],
+          ...state.data.slice(action.payload.config.params.id)
+        ],
         isLoading: false,
         isPost: false
       };
-    case `${GET_EVENT_BY_CATEGORY}_REJECTED`:
+    case `${EDIT_PAYMENT}_REJECTED`:
       return {
         ...state,
         error: true,

@@ -63,7 +63,7 @@ class Register extends Component {
 
   handleRegister = () => {
     axios
-      .post("http://localhost:5000/api/v1/register", {
+      .post("https://dumbtick.herokuapp.com/api/v1/register", {
         username: this.state.username,
         name: this.state.name,
         password: this.state.password,

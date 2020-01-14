@@ -23,8 +23,6 @@ class MyEventMap extends Component {
             <Grid
                 container
                 direction="row"
-                justify="space-between"
-                alignItems="center"
                 spacing={2}
                 style={{ marginTop: "20px", marginBottom: "20px" }}
             >

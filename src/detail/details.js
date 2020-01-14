@@ -85,7 +85,7 @@ class Detail extends Component {
           <img
             src={`${this.props.img}`}
             width="100%"
-            height="700vh"
+            height="600vh"
             alt="pamflet"
           />
           <div className="text-box">

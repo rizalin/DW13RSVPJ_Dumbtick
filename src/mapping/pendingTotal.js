@@ -15,15 +15,17 @@ class PendingTotal extends Component {
         console.log(data);
         return (
             <div>
-                {data
-                    .filter(order => (order.status == "pending"))
-                    .map(order => (
-                        <Pay
-                            key={order.id}
-                            total={order.totalPrice}
-                            item={order.quantity}
-                        />
-                    ))}
+                {isLoading ?
+                    <div>PLEASE WAIT...</div>
+                    : data
+                        .filter(order => (order.status === "pending"))
+                        .map(order => (
+                            <Pay
+                                key={order.id}
+                                total={order.totalPrice}
+                                item={order.quantity}
+                            />
+                        ))}
             </div>
         );
     }

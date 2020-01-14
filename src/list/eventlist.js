@@ -14,7 +14,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux"
 
 import "../App.css";
-import { addFavorite } from '../_actions/favorite'
+import { addFavorite, getFavorites } from '../_actions/favorite'
 
 const userId = localStorage.getItem("id")
 const isLogin = localStorage.getItem("isLogin")
@@ -24,9 +24,11 @@ class EventList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false
+      open: false,
+      status: this.props.favorite.data.status
     };
   }
+
 
   handleOpen = () => {
     this.setState({ open: true });
@@ -38,11 +40,12 @@ class EventList extends Component {
       const favorite = {
         event_id: this.props.id,
         following_user: userId,
+        status: 2
       };
       this.props.addFavorite(favorite);
       this.setState({ open: true });
     } else {
-      alert("Anda belum Login")
+      alert("Login untuk menambah event favorit")
     }
   }
 
@@ -59,8 +62,9 @@ class EventList extends Component {
   render() {
     const dates = new Date(this.props.time);
     const date = moment(dates).format("DD MMM YYYY")
+    console.log(this.state.status)
     return (
-      <Card style={{ maxWidth: "350px", marginBottom: "40px" }}>
+      <Card style={{ maxWidth: "350px", marginBottom: "40px", marginLeft: '20px' }}>
         <CardMedia
           component="img"
           alt="Contemplative Reptile"

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux"
 import { getEvent } from "../_actions/event"
-import axios from "axios";
 import Detail from "../detail/details";
 
 class DetailMap extends Component {
@@ -19,11 +18,11 @@ class DetailMap extends Component {
 
   render() {
     const { data } = this.props.event
-    const { category,createdBy } = this.props.cat
+    const { category, createdBy } = this.props.cat
     console.log(data)
     return (
       <div>
-        {data&& category&& <Detail
+        {data && category && <Detail
           key={data.id}
           id={data.id}
           img={data.img}
@@ -37,12 +36,11 @@ class DetailMap extends Component {
           time={data.startTime}
           address={data.address}
           desc={data.description}
-          address={data.address}
           startTime={data.startTime}
           endTime={data.endTime}
           map={data.urlMaps}
-        /> }
-       
+        />}
+
       </div>
     );
   }
@@ -51,7 +49,7 @@ class DetailMap extends Component {
 const mapStateToProps = state => {
   return {
     event: state.event,
-    cat:state.event.data
+    cat: state.event.data
   };
 };
 

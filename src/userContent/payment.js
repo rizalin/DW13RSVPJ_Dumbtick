@@ -4,9 +4,7 @@ import { Container } from "reactstrap";
 import "../App.css";
 import Header from "../header/header";
 import Footer from "../footer";
-import Prove from "../img/opera_2bMnptgwbr.png";
 import PendingTicketMap from "../mapping/pendingMap";
-import PendingTotal from "../mapping/pendingTotal";
 import { getToken } from "../_config/bearer";
 
 const isLogin = localStorage.getItem("isLogin")
@@ -15,7 +13,7 @@ const token = localStorage.getItem('token')
 class Payment extends Component {
   render() {
     getToken(token)
-    if (isLogin == "true") {
+    if (isLogin === "true") {
       return (
         <div className="pay">
           <Header />

@@ -6,7 +6,6 @@ import {
 import "../App.css";
 import Header from "../header/header";
 import Footer from "../footer";
-import EventMap from "../mapping/eventhome";
 import { getToken } from "../_config/bearer"
 import MyEventMap from "../mapping/myEvent";
 
@@ -16,7 +15,7 @@ const token = localStorage.getItem('token')
 class MyEvent extends Component {
   render() {
     getToken(token)
-    if (isLogin == "true") {
+    if (isLogin === "true") {
       return (
         <div className="App">
           <Header />

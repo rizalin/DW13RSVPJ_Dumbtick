@@ -22,8 +22,6 @@ class FavoriteMap extends Component {
             <Grid
                 container
                 direction="row"
-                justify="space-evenly"
-                alignItems="center"
                 spacing={2}
                 style={{ marginTop: "20px", marginBottom: "20px" }}
             >

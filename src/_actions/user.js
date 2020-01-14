@@ -4,7 +4,7 @@ import axios from "axios";
 export const getUser = (id) => {
   return {
     type: GET_USER,
-    payload: axios.get("http://localhost:5000/api/v1/user/" + id)
+    payload: axios.get("https://dumbtick.herokuapp.com/api/v1/user/" + id)
   };
 };
 
@@ -14,7 +14,7 @@ export const editUser = (user, id) => {
     type: EDIT_USER,
     payload: axios({
       method: "PUT",
-      url: `http://localhost:5000/api/v1/user/${id}`,
+      url: `https://dumbtick.herokuapp.com/api/v1/user/${id}`,
       params: {
         id
       },

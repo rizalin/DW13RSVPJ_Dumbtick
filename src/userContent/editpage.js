@@ -3,7 +3,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "../App.css";
 import Header from "../header/header";
 import Footer from "../footer";
-import UserMap from "../mapping/profileMap"
 import EditProfile from "../userContent/editProfile"
 import { getToken } from "../_config/bearer";
 
@@ -15,7 +14,7 @@ class EditPage extends Component {
     render() {
         getToken(token)
 
-        if (isLogin == "true") {
+        if (isLogin === "true") {
             return (
                 <div className="App">
                     <Header />

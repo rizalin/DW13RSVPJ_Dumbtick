@@ -19,20 +19,16 @@ class UpcomingEvent extends Component {
         const today = new Date(dateNow)
         const DateNow = moment(today).format("DD MMM YYYY")
         console.log(DateNow)
-        const date = moment(data.startTime).format("DD MMM YYYY")
-        console.log(date)
 
         return (
             <Grid
                 container
                 direction="row"
-                justify="space-evenly"
-                alignItems="center"
                 spacing={2}
                 style={{ marginTop: "20px", marginBottom: "20px" }}
             >
                 {data
-                    .filter(event => (moment(event.startTime).format("DD MMM YYYY").toString() != DateNow))
+                    .filter(event => (moment(event.startTime).format("DD MMM YYYY").toString() !== DateNow))
                     .map(event => (
                         <EventList
                             key={event.id}
@@ -51,7 +47,7 @@ class UpcomingEvent extends Component {
 
 const mapStateToProps = state => {
     return {
-        event: state.event
+        event: state.filteredEvent
     };
 };
 

@@ -30,7 +30,7 @@ class Payment extends Component {
     handleStatus = () => {
         const orderID = this.state.id
         const order = { status: 'confirmed' }
-        axios.patch('http://localhost:5000/api/v1/order/' + orderID, order)
+        axios.patch('https://dumbtick.herokuapp.com/api/v1/order/' + orderID, order)
             .then(res => res.data);
         alert('Pembayaran berhasil dikonfirmasi')
     }
@@ -43,8 +43,8 @@ class Payment extends Component {
         getToken(token)
 
         let statusButton;
-        if (this.state.status == "pending") {
-            statusButton = <a onClick={this.handleStatus} href="" ><div className="pen-Button">Pending</div></a>
+        if (this.state.status === "pending") {
+            statusButton = <a onClick={this.handleStatus} href="/payment" ><div className="pen-Button">Pending</div></a>
         } else {
             statusButton = <a onClick={() => alert("Silahkan tunggu order ini diproses")} href="" ><div className="payButton">Confirmed</div></a>
         }

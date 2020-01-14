@@ -50,7 +50,6 @@ class AddEvent extends Component {
       startTime: this.state.startTime,
       endTime: this.state.endTime,
       price: this.state.price,
-      address: this.state.address,
       urlMaps: this.state.urlMaps,
       description: this.state.description,
       create_by: userId
@@ -61,7 +60,7 @@ class AddEvent extends Component {
 
   render() {
     getToken(token)
-    if (login == "true") {
+    if (login === "true") {
       return (
         <div className="App">
           <Header />
@@ -164,7 +163,7 @@ class AddEvent extends Component {
             </div>
             <br></br>
             <br></br>
-            <div className="submit-button"><a onClick={this.handleAddEvent} href="">Publish</a></div>
+            <a onClick={this.handleAddEvent} href="#"><div className="submit-button">Publish</div></a>
             <br></br>
             <br></br>
             <br></br>

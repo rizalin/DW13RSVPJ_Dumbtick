@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Logo from "../img/dumb-ticket.png";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button, Row, Container, Col } from "reactstrap";
+import { Row, Container, Col } from "reactstrap";
 import Register from "../login/register";
 import Login from "../login/login";
 import { Link } from "react-router-dom";

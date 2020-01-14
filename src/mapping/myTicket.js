@@ -15,7 +15,9 @@ class ConfirmedTicket extends Component {
         console.log(data);
         return (
             <div>
-                {data
+                {isLoading ?
+                    <div>PLEASE WAIT...</div>
+                    : data
                     .filter(order => (order.status == "approved"))
                     .map(order => (
                         <Ticket

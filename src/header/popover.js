@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Avatar, Link } from "@material-ui/core";
+import { Link } from "react-router-dom";
+import { Avatar } from "@material-ui/core";
 import { Popover, OverlayTrigger, Dropdown, Row } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../App.css";
@@ -20,11 +21,11 @@ const token = localStorage.getItem("token")
 const popover = (
   <Popover id="popover-basic">
     <Popover.Content>
-      <Dropdown.Item href="/profile">Profile</Dropdown.Item>
-      <Dropdown.Item href="/my_ticket">My Ticket</Dropdown.Item>
-      <Dropdown.Item href="/my_event">My Event</Dropdown.Item>
-      <Dropdown.Item href="/payment">Payment</Dropdown.Item>
-      <Dropdown.Item href="/add_event">Add Event</Dropdown.Item>
+      <Dropdown.Item><Link to="/profile">Profile</Link> </Dropdown.Item>
+      <Dropdown.Item><Link to="/my_ticket">My Ticket</Link></Dropdown.Item>
+      <Dropdown.Item><Link to="/my_event">My Event</Link></Dropdown.Item>
+      <Dropdown.Item><Link to="/payment"> Payment</Link></Dropdown.Item>
+      <Dropdown.Item><Link to="/add_event" ></Link>Add Event</Dropdown.Item>
       <Dropdown.Divider />
       <Dropdown.Item onClick={logout}>Logout</Dropdown.Item>
     </Popover.Content>

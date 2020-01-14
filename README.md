@@ -20,7 +20,7 @@ First, clone this repository into your system.
 ```git
 git clone https://github.com/rizalin/DW13RSVPJ_Dumbtick/tree/After_redux
 ```
-Then, install all the packages that described in package.json of both client and server directories.
+Then, install all the packages that described in package.json.
 ```git
 npm install
 ```

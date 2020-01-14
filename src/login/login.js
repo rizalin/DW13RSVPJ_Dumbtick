@@ -62,7 +62,7 @@ class Login extends Component {
 
   handleLogin = () => {
     axios
-      .post("http://localhost:5000/api/v1/login", {
+      .post("https://dumbtick.herokuapp.com/api/v1/login", {
         username: this.state.username,
         password: this.state.password,
       })

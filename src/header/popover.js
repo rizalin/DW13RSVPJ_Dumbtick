@@ -25,7 +25,7 @@ const popover = (
       <Dropdown.Item><Link to="/my_ticket">My Ticket</Link></Dropdown.Item>
       <Dropdown.Item><Link to="/my_event">My Event</Link></Dropdown.Item>
       <Dropdown.Item><Link to="/payment"> Payment</Link></Dropdown.Item>
-      <Dropdown.Item><Link to="/add_event" ></Link>Add Event</Dropdown.Item>
+      <Dropdown.Item><Link to="/add_event">Add Event</Link></Dropdown.Item>
       <Dropdown.Divider />
       <Dropdown.Item onClick={logout}>Logout</Dropdown.Item>
     </Popover.Content>
